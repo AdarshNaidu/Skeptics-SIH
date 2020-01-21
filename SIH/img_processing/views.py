@@ -1,20 +1,21 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import UploadFileForm
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 # Imaginary function to handle an uploaded file.
 from .file_handler import handle_uploaded_file
 
-
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'img_processing/index.html')
 
 def upload_image(request):
-    if request.method == 'POST':
-        form = UploadFileForm(request.POST, request.FILES)
-        if form.is_valid():
-            handle_uploaded_file(request.FILES['file'])
-            return HttpResponseRedirect('/success/url/')
-    else:
-        form = UploadFileForm()
-    return render(request, 'upload_image.html', {'form': form})
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage()
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'img_processing/upload_image.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
+    return render(request, 'img_processing/upload_image.html')

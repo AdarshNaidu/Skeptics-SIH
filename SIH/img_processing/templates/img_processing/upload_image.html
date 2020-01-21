@@ -1,4 +1,29 @@
+{% load static %}
 
+<!doctype html>
+<html>
+<head>
+    <title>...</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="{%static 'img_processing/upload_image_style.css'%}">
+</head>
+
+<body>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="myfile">
+        <button type="submit">Upload</button>
+    </form>
+    
+</body>
+</html>
 <!-- 
 
     <form enctype="multipart/form-data" method="post" action="/upload/">
@@ -8,14 +33,3 @@
     </form>
 
 -->
-
-
-<form method="post" enctype="multipart/form-data" action = "/upload">
-    <div>
-      <label for="file">Choose file to upload</label>
-      <input type="file" id="file" name="file" multiple>
-    </div>
-    <div>
-      <button>Submit</button>
-    </div>
-</form>
