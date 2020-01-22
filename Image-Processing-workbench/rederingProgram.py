@@ -20,7 +20,7 @@ def interpolate(inp, fi):
 
 def returnCycles(v):
     pix_2017 = []
-    for filename in os.listdir(os.getcwd()):
+    for filename in sorted(os.listdir(os.getcwd())):
         if filename.endswith("2_clipped.tif"):
             im = Image.open(filename)
             imarray = np.array(im)
