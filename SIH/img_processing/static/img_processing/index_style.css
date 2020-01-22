@@ -27,7 +27,7 @@ body {
   font-size: 4em;
 }
 
-a {
+nav a {
   padding: 10px 20px;
   border: 2px solid black;
   text-decoration: none;
@@ -48,12 +48,18 @@ a {
   background-repeat: no-repeat;
   background-color: rgba(55, 58, 56, 0.726);
   background-blend-mode: darken;
-  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 87vh;
 }
 
 .table-div {
-  display: table;
-  height: 90vh;
+  display: flex;
+  height: 60vh;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .landing-view h2 {
@@ -80,8 +86,7 @@ a {
 }
 
 .go-down {
-  display: flex;
-  justify-content: center;
+  justify-self: flex-end;
 }
 
 .go-down i {
