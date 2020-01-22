@@ -136,7 +136,7 @@
         from multi-temporal data
       </h3>
       <div class="buttons">
-        <a href="/Examples" class="btn btn-default btn-lg">Examples</a>
+        <a href="#existin" class="btn btn-default btn-lg">Use Existing Data</a>
         <a href="{% url 'upload_image' %}" class="btn btn-default btn-lg"
           >Custom Upload</a
         >
@@ -144,17 +144,41 @@
     </div>
     
     <div class = "container-fluid text-center ">
-      <h1 style="color:black">Use Existing Date</h1>
+      <h1 style="color:black" id="existin">Use Existing Data</h1>
       
       <img id = "existing" src = "{% static 'img_processing/image.jpg'%}" alt = "">
     </div>
+
+    <div id="coords">
+      <h3>X Coordinate:</h3>
+      <div class="content" id="x_coord"></div>
+
+      <h3>Y Coordinate:</h3>
+      <div class="content" id="y_coord"></div>
+    </div>
+
+    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
-    const image = document.getElementById('existing');
-    image.addEventListener('click', (event) => {
-      console.log(event);
-    })
+      let x = 500, y = 500;
+
+      const image = document.getElementById('existing');
+      image.addEventListener('click', (event) => {
+        console.log(event);
+        x = (event.offsetX * 600) / 2118;
+        y = (event.offsetY * 600) / 2135;
+        let coord = {
+          x,
+          y
+        }
+
+        document.getElementById('x_coord').innerText = x
+        document.getElementById('y_coord').innerText = y
+        document.getElementById('coords').setAttribute('style', 'display: block')
+
+      })
     </script>
   </body>
 </html>
