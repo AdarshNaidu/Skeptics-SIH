@@ -50,4 +50,7 @@ for i in range(len(val)):
     else:
         colour = (0,255,0)
     image = cv2.circle(image,(val[i][0], val[i][1]), 16, colour, -3)
-cv2.imwrite('final_image.tif', image) 
+cv2.imwrite('final_image.tif', image)
+im = Image.open('final_image.tif')
+out = im.convert("RGB")
+out.save('final_image.jpeg', "JPEG", quality=90) 
