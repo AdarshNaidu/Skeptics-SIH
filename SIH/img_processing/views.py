@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.views.generic.edit import FormView
 from .forms import FileFieldForm
+from .ImgProcessingWorkbench.renderingProgram_static import *
 
 class FileFieldView(FormView):
     form_class = FileFieldForm
@@ -26,7 +27,6 @@ class FileFieldView(FormView):
                 filename = fs.save(f.name, f)
                 uploaded_file_url = fs.url(filename)
 
-            # call Render here
             return render(request, 'img_processing/uploaded_image.html')
         else:
             return super(FileFieldView, self).form_invalid(form)
@@ -38,11 +38,11 @@ def index(request):
 def uploaded_image(request):
     return render(request, 'img_processing/uploaded_image.html')
 
-"""
-def upload_image(request):
+
+def custom_image(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         return render(request, 'img_processing/uploaded_image.html')
     # 'uploaded_file_url': uploaded_file_url
     return render(request, 'img_processing/upload_image.html')
-"""
+
