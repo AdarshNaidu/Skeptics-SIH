@@ -65,7 +65,7 @@ body {
 
     <div class="section">
       <video autoplay muted loop id="myVideo">
-        <source src="cropped sih.mp4" type="video/mp4" />
+        <source src="{% url img_processing/cropped sih.mp4 %}" type="video/mp4" />
 
         Your browser does not support the video tag.
       </video>
@@ -92,11 +92,11 @@ body {
         </p>
       </div>
 
-      <img src="./Graph.PNG" style="width: 400px;" alt="" />
+      <img src="{% url img_processing/Graph.PNG %}" style="width: 400px;" alt="" />
     </div>
 
     <div class="section" style="margin-bottom: 80px;;">
-      <img src="./Output.PNG" style="width: 400px;" alt="" />
+      <img src="{% url img_processing/Output.PNG %}" style="width: 400px;" alt="" />
 
       <div id="description">
         <h1>Output</h1>
