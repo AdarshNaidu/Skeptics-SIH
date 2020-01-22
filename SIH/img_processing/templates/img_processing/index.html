@@ -64,6 +64,11 @@
       .navbar-nav li a:hover {
         color: #1abc9c !important;
       }
+      #existing{
+        width: 700px;
+        display: inline-block;
+        margin: 20px auto;
+      }
     </style>
   </head>
   <body>
@@ -129,7 +134,19 @@
         >
       </div>
     </div>
+    
+    <div class = "container-fluid text-center ">
+      <h1 style="color:black">Use Existing Date</h1>
+      
+      <img id = "existing" src = "{% static 'img_processing/image.jpg'%}" alt = "">
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+    const image = document.getElementById('existing');
+    image.addEventListener('click', (event) => {
+      console.log(event);
+    })
+    </script>
   </body>
 </html>
