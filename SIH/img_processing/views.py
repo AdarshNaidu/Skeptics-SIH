@@ -5,13 +5,10 @@ from django.core.files.storage import FileSystemStorage
 from django.views.generic.edit import FormView
 from .forms import FileFieldForm
 
-# Imaginary function to handle an uploaded file.
-from .file_handler import handle_uploaded_file
-
 class FileFieldView(FormView):
     form_class = FileFieldForm
     template_name = 'img_processing/upload_image.html'  # Replace with your template.
-    success_url = 'img_processing/uploaded_image.html'  # Replace with your URL or reverse().
+    success_url = 'uploaded_image.html'  # Replace with your URL or reverse().
 
     def get(self, request, *args, **kwargs):
         form = FileFieldForm()
@@ -28,9 +25,11 @@ class FileFieldView(FormView):
             for f in files:              
                 filename = fs.save(f.name, f)
                 uploaded_file_url = fs.url(filename)
-            return self.form_valid(form)
+
+            # call Render here
+            return render(request, 'img_processing/uploaded_image.html')
         else:
-            return self.form_invalid(form)
+            return super(FileFieldView, self).form_invalid(form)
 
 
 def index(request):
