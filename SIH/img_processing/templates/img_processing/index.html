@@ -148,6 +148,9 @@
 
       <h3>Y Coordinate:</h3>
       <div class="content" id="y_coord"></div>
+
+      <h3>Result:</h3>
+      <div class="content" id="result"></div>
     </div>
 
     
@@ -169,8 +172,11 @@
 
         document.getElementById('x_coord').innerText = x
         document.getElementById('y_coord').innerText = y
-        document.getElementById('coords').setAttribute('style', 'display: block')
+        let value = Math.floor((Math.random() * 2) + 1);
+        document.getElementById('result').innerText = value
+        document.getElementById('coords').setAttribute('style', 'display: block; color: black;')
 
+        
       })
     </script>
   </body>
