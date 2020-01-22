@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Approach</title>
+    <style>
+    
+    
+    
+    *,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0%;
+  padding: 0%;
+}
+
+body {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  text-align: center;
+}
+
+#myVideo {
+  /* position: fixed; */
+  /* right: 0;
+    bottom: 0; */
+  width: 50%;
+  /* min-height: 100%; */
+  margin: 10px auto;
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#description {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+    
+    
+    
+    
+    
+    
+    
+    </style>
+  </head>
+  <body>
+    <h1>Our Approach</h1>
+
+    <div class="section">
+      <video autoplay muted loop id="myVideo">
+        <source src="cropped sih.mp4" type="video/mp4" />
+
+        Your browser does not support the video tag.
+      </video>
+
+      <div id="description" style="margin: 0 40px;">
+        <h1>The Data Set</h1>
+        <p>
+          The dataset contains the images with normalized difference vegetation
+          index (NDVI) which gives a way to analyse vegetation health based on
+          reflectance values obtained.
+        </p>
+      </div>
+    </div>
+
+    <div class="section" style="margin: 40px 0;">
+      <div id="description">
+        <h1>The graph</h1>
+        <p>
+          NDVI values for one pixel is analysed over all images giving NDVI
+          values over a period of time. These values are plotted over a period
+          of a year or so. This graph is then smoothened to reduce random
+          factors like instruments errors. This is done over all images to get
+          number of crop cycles.
+        </p>
+      </div>
+
+      <img src="./Graph.PNG" style="width: 400px;" alt="" />
+    </div>
+
+    <div class="section" style="margin-bottom: 80px;;">
+      <img src="./Output.PNG" style="width: 400px;" alt="" />
+
+      <div id="description">
+        <h1>Output</h1>
+        <p>Color of each pixel in the output image coresponds to the number of harvest cycles.</p>
+      </div>
+    </div>
+  </body>
+</html>
