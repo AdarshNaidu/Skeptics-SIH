@@ -5,6 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from django.views.generic.edit import FormView
 from .forms import FileFieldForm
 from .ImgProcessingWorkbench.renderingProgram_static import *
+import time
 
 class FileFieldView(FormView):
     form_class = FileFieldForm
@@ -27,6 +28,7 @@ class FileFieldView(FormView):
                 filename = fs.save(f.name, f)
                 uploaded_file_url = fs.url(filename)
 
+            time.sleep(5)
             return render(request, 'img_processing/uploaded_image.html')
         else:
             return super(FileFieldView, self).form_invalid(form)
@@ -46,3 +48,5 @@ def custom_image(request):
     # 'uploaded_file_url': uploaded_file_url
     return render(request, 'img_processing/upload_image.html')
 
+def approach(request):
+    return render(request, 'img_processing/approach.html')
