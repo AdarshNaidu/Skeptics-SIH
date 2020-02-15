@@ -1,5 +1,8 @@
 # Skeptics
 
+## Objectives
+To develop a system which extracts crop cycle parameters for the given set of multispectral multi-temporal data with timestamp of one year or more. We developed an algorithmic technique that can be utilized to extract parameters such as date of sowing, date of harvesting and number of harvests based on temporal profile of the data provided.
+
 ## Team Members
 * Adarsh Naidu (181IT102)
 * Sriram Rao Udupi (181IT246)
